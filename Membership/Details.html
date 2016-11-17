@@ -1,0 +1,182 @@
+<html>
+
+<head>
+
+<title>View details</title>
+
+<script type="text/javascript">
+	function validate()
+	{
+		var name=document.form1.username;
+		var pw=document.form1.pwd;
+		var cpw=document.form1.cpwd;
+		var eid=document.form1.mail.value;
+		var mob=document.form1.no.value;
+		
+		if((name.value==null)||(name.value==""))
+		{
+			alert("Enter name");
+			return false;
+		}
+		
+
+		if((pw.value==null)||(pw.value== ""))
+		{
+			alert("Enter Password");
+			return false;
+		}
+
+		if(pw.value!=cpw.value)
+		{
+			alert("Enter correct Password");
+			return false;
+		}
+
+		var atpos = eid.indexOf("@");
+ 	 	var dotpos = eid.lastIndexOf(".");
+	 	var elen=eid.length;
+  	 	if (atpos < 1 || ( dotpos - atpos <= 2 )||(elen-dotpos)<2) 
+   	  	{
+    	    		alert("Please Enter correct mail ID");
+     	    		//document.form1.eid.focus() ;
+            			return false;
+  	  	}
+
+		if((document.form1.gender[0].checked == false)&&(document.form1.gender[1].checked==false))
+       		 {
+			alert("choose radio button");
+			return false;
+        		}
+
+		if((!document.form1.checkb1.checked) && (!document.form1.checkb2.checked ) && (!document.form1.checkb3.checked ) && (!		document.form1.checkb4.checked) && (!document.form1.checkb5.checked) && (!document.form1.checkb6.checked) && (!document.form1.checkb7.checked) && (!document.form1.checkb8.checked))
+        		{
+			alert("Choose checkbox for Type of Activity");
+         			return false;
+       		 }
+
+		if(mob.length<10)
+	  	{
+			alert("Invalid length of mobile number");
+			return false;
+	  	}
+
+		if(isNaN(mob))
+	 	 {
+			alert("Invalid  mobile number");
+			return false;
+	  	}
+
+		return true;
+	}
+</script>
+
+<style>
+	input, textarea
+	{
+	  font    : .9em/1.5em "handwriting", Century Gothic;
+	 border  : groove;
+	  padding : 8 px;
+	  margin  : 10;
+	  width   : 200 px;
+	background: white;
+	}
+
+	form 
+	{
+	 position: relative;
+	  width  : 900px;
+	  height : 500px;
+	 margin:0 auto;
+	}
+
+	input:focus, textarea:focus
+	{
+	  background   : light blue;
+	  border-radius: 15px;
+	}
+</style>
+
+</head>
+
+<body>
+
+<marquee direction="left" behavior="slide" scrolldelay="4">
+	<h1> Details</h1>
+</marquee>
+
+<form name="form1" action="Updated Successfully.html" onsubmit= "return validate();" method="post">
+	<fieldset >
+		<legend>Personal Details</legend>
+		<table>
+			<tr>
+				<td>Name :  <td> <input type="text" name="nme"  value="Priyanka" size="20" /><td><input type="text" name="lnme" value="Sharma" size="20" />
+			<tr>
+				<td>User name :  <td> <input type="text" name="username" size="20" value="priya12" />
+			<tr>
+				<td>Address :  <td> <textarea cols=18 rows=3  input size="20">A-4,Shantivan Society,Katraj</textarea>
+			<tr>
+				<td>Mobile No. : <td> <input size="20" maxlength="10" type="text" name="no" value="9890265774"> 
+			<tr>
+				<td>Email id: <td><input type="text" name="mail" value="priyankas1@gmail.com" size="20"/>
+			<tr>
+				<td>Birth Date:<td><input type="text" name="birth" value="12/13/1995"/>
+			<tr>
+				<td>Gender:<td><input type="radio" name="gender"> Male
+			<tr>
+				<td>
+				<td><input type="radio" name="gender"> Female</input>
+			<tr>
+				<td>City: <td> <input type="text" name="city" value="Pune" size="20"/>
+			<tr>
+				<td>Country : <td> <input type="text" name="country" value="Maharashtra" size="20"/>
+		</table>
+	</fieldset>
+	<br>
+	<fieldset>	
+		<legend>Membership Details</legend>
+		<table>
+			<tr>
+				<td>Choose type of Membership:
+			<tr>
+				<td><td>
+					<select  id="member" >
+					<option value="Senior">Senior</option>
+					<option value="Corporate">Corporate </option>
+					<option value="Annual Pre-paid">Annual Pre-paid</option>
+					<option value="Student">Student</option>
+					<option value="Family">Family</option>
+					</select>
+			<br><br>
+
+			<tr>
+				<td>Type of Activity:<td><input type="checkbox" name="checkb1"/>Badminton
+			<tr>
+				<td><td><input type="checkbox" name="checkb2" value=true />Swimming
+			<tr>
+				<td><td><input type="checkbox" name="checkb3"/>Pool/Snooker
+			<tr>
+				<td><td><input type="checkbox" name="checkb4"/>Table Tennis
+			<tr>
+				<td><td><input type="checkbox" name="checkb5"/>Cricket
+			<tr>
+				<td><td><input type="checkbox" name="checkb6"/>Basketball
+			<tr>
+				<td><td><input type="checkbox" name="checkb7"/>Tennis
+			<tr>
+				<td><td><input type="checkbox" name="checkb8"/>Football
+		</table>
+	</fieldset>
+	<br>
+	
+	<br>
+	<center>
+		<input type="Submit" value="UPDATE DETAILS"/>
+		<input type="Reset" value="RESET DETAILS"/>
+	</center>
+</form>
+</body>
+</html>
+
+
+
+
